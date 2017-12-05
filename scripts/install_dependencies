@@ -41,11 +41,6 @@ cp -r /tmp/$TOMCAT7_CORE_UNPACKED_DIRNAME/* $CATALINA_HOME
 # Install Java if not yet installed
 { which java; } || { yum install java; }
 
-# Remove apache to spin up tomcat on port 80
-sudo service http stop
-
-sudo yum -y remove httpd
-
 # Create the service init.d script
 cat > /etc/init.d/tomcat7 <<'EOF'
 #!/bin/bash
